@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+src-tauri/target/
+*.tsbuildinfo
+scripts/
+
+# Vite
+.vite/
+
+# Tauri bundle outputs (target/ above covers src-tauri/target/ and all bundles inside it)
+
+# Microsoft Store / MSIX packaging
+*.msix
+*.appx
+*.appxbundle
+AppPackages/
+*.msixpackages/
+.msix/
+
+# IDE & editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.local
+.secret
+*.pem
+*.pfx
+
+# Logs & debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Rust/Cargo (target already above; optional cache)
+# .cargo/config.toml.local
+
+# Test & coverage
+coverage/
+.nyc_output/
+*.lcov
