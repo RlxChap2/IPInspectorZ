@@ -21,12 +21,12 @@ See [docs/FEATURES.md](docs/FEATURES.md) for full feature documentation.
 
 ## Tech Stack
 
-| Layer          | Technology                |
-| -------------- | ------------------------- |
-| Desktop shell  | **Tauri 2** (Rust)        |
-| Frontend       | **TypeScript** + **Vite** |
+| Layer          | Technology                      |
+| -------------- | ------------------------------- |
+| Desktop shell  | **Tauri 2** (Rust)              |
+| Frontend       | **TypeScript** + **Vite**       |
 | Public IP      | [ipify](https://www.ipify.org/) |
-| Geo + ISP data | [IPinfo](https://ipinfo.io/) |
+| Geo + ISP data | [IPinfo](https://ipinfo.io/)    |
 
 ---
 
