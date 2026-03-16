@@ -42,6 +42,7 @@ jobs:
               with:
                   name: ip-inspector-z-windows
                   path: |
+                      src-tauri/target/release/bundle/msi/*.msi
                       src-tauri/target/release/bundle/nsis/*.exe
                       src-tauri/target/release/ip-inspector-z.exe
                   if-no-files-found: warn
@@ -126,7 +127,7 @@ jobs:
 
                       | Platform | Artifacts |
                       |----------|-----------|
-                      | Windows  | NSIS installer, portable .exe |
+                      | Windows  | MSI installer, NSIS installer, portable .exe |
                       | macOS    | .dmg, .app |
                       | Linux    | AppImage, .deb |
 
