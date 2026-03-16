@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en" class="dark">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>IP Inspector Z</title>
+
+        <!-- Tailwind CSS via CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Tailwind Configuration for Custom Colors/Fonts -->
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Inter', 'Segoe UI', 'system-ui', 'sans-serif'],
+                        },
+                        colors: {
+                            brand: {
+                                50: '#eff6ff',
+                                100: '#dbeafe',
+                                400: '#60a5fa',
+                                500: '#3b82f6',
+                                600: '#2563eb',
+                                900: '#1e3a8a',
+                                950: '#172554',
+                            },
+                        },
+                        animation: {
+                            blob: 'blob 7s infinite',
+                            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        },
+                        keyframes: {
+                            blob: {
+                                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+
+        <!-- Google Fonts: Inter -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+        <style>
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+
+            /* Custom Scrollbar */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #0f172a;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #334155;
+                border-radius: 4px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #475569;
+            }
+
+            .glass-card {
+                background: rgba(30, 41, 59, 0.6);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .gradient-text {
+                background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .bg-grid-pattern {
+                background-image:
+                    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+                background-size: 40px 40px;
+                mask-image: radial-gradient(circle at center, black, transparent 80%);
+                -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+            }
+        </style>
+    </head>
+    <body class="bg-slate-950 text-slate-200 min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-white flex flex-col">
+        <!-- Background Effects -->
+        <div class="fixed inset-0 z-0 pointer-events-none">
+            <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+            <!-- Animated Blobs -->
+            <div
+                class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"
+            ></div>
+            <div
+                class="absolute top-[20%] right-[-10%] w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"
+            ></div>
+            <div
+                class="absolute bottom-[-20%] left-[20%] w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"
+            ></div>
+        </div>
+
+        <main class="relative z-10 flex-grow container mx-auto px-4 py-16 flex flex-col items-center">
+            <!-- Hero Section -->
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-6 pt-10">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-brand-400 text-sm font-medium mb-4 shadow-lg shadow-brand-500/10 border-brand-500/20"
+                >
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                    </span>
+                    Latest Release Available
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">IP Inspector <span class="gradient-text">Z</span></h1>
+                <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Advanced network and device diagnostics tool, built for developers and power users requiring deep system insights.
+                </p>
+            </div>
+
+            <!-- Primary Download Section -->
+            <div
+                id="main-download-section"
+                class="w-full max-w-2xl glass-card rounded-3xl p-8 md:p-12 mb-20 shadow-2xl transition-all duration-300 hover:shadow-brand-500/10 hover:border-brand-500/30 group"
+            >
+                <div class="flex flex-col items-center text-center">
+                    <div
+                        id="detected-os"
+                        class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-sm font-semibold text-slate-300 mb-8 transition-colors group-hover:bg-slate-800/80"
+                    >
+                        <i class="fas fa-desktop mr-2 animate-pulse-slow"></i> Detecting System...
+                    </div>
+
+                    <h2 class="text-2xl md:text-3xl font-bold mb-8">Recommended Download</h2>
+
+                    <a
+                        id="primary-download-btn"
+                        href="#"
+                        class="group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 py-4 bg-brand-600 text-white font-semibold rounded-2xl overflow-hidden transition-all duration-300 hover:bg-brand-500 hover:scale-[1.02] hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.6)] focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-slate-900 active:scale-95"
+                    >
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-brand-600 to-brand-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        ></div>
+                        <i class="fas fa-download text-xl relative z-10 group-hover:-translate-y-0.5 transition-transform duration-300"></i>
+                        <span id="primary-btn-text" class="relative z-10 text-lg">Download App</span>
+                    </a>
+
+                    <div id="primary-version-info" class="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-slate-400">
+                        <span class="animate-pulse">Fetching latest release data...</span>
+                    </div>
+
+                    <div
+                        id="ms-store-notice"
+                        class="mt-4 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center gap-2 hidden"
+                    >
+                        <i class="fa-solid fa-check-circle"></i> Direct Microsoft Store Compatible Link
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Platforms Section -->
+            <div class="w-full max-w-6xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-4">All Platforms</h2>
+                    <p class="text-slate-400">Choose the right package for your operating system.</p>
+                </div>
+
+                <div id="platforms-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Loading State -->
+                    <div id="loading-platforms" class="col-span-full py-12 flex flex-col justify-center items-center text-slate-500 space-y-4">
+                        <i class="fa-solid fa-circle-notch fa-spin text-3xl text-brand-500"></i>
+                        <p>Loading available downloads...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="relative z-10 py-8 border-t border-slate-800/60 mt-auto backdrop-blur-md">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between text-slate-400 text-sm">
+                <p>&copy; 2026 IP Inspector Z.</p>
+                <div class="flex items-center gap-6 mt-4 md:mt-0">
+                    <a
+                        href="https://github.com/RlxChap2/IPInspectorZ"
+                        target="_blank"
+                        class="hover:text-white transition-colors flex items-center gap-2"
+                    >
+                        <i class="fa-brands fa-github text-lg"></i> GitHub Repository
+                    </a>
+                    <a href="https://github.com/RlxChap2" target="_blank" class="hover:text-white transition-colors">By RlxChap2</a>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const owner = 'RlxChap2';
+            const repo = 'IPInspectorZ';
+            const STABLE_WINDOWS_EXE_URL = 'https://rlxchap2.github.io/IPInspectorZ/IPInspectorZ-setup.exe';
+
+            function formatBytes(bytes, decimals = 2) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const dm = decimals < 0 ? 0 : decimals;
+                const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+            }
+
+            function detectOS() {
+                const ua = window.navigator.userAgent.toLowerCase();
+                if (ua.includes('win')) return 'Windows';
+                if (ua.includes('mac')) return 'macOS';
+                if (ua.includes('linux') || ua.includes('x11')) return 'Linux';
+                return 'Unknown';
+            }
+
+            function getFormatIcon(filename) {
+                const name = filename.toLowerCase();
+                if (name.endsWith('.exe') || name.endsWith('.msi')) return 'fa-windows text-blue-400';
+                if (name.endsWith('.dmg') || name.endsWith('app.tar.gz')) return 'fa-apple text-slate-300';
+                if (name.endsWith('.deb') || name.endsWith('.appimage')) return 'fa-linux text-orange-500';
+                if (name.endsWith('.zip') || name.endsWith('.tar.gz')) return 'fa-file-zipper text-yellow-500';
+                return 'fa-file text-slate-400';
+            }
+
+            function categorizeAssets(assets) {
+                const platforms = { Windows: [], macOS: [], Linux: [], Other: [] };
+
+                // Exclude the generated setup.exe if it's identical to the base one, we'll manually inject the stable link.
+                const filteredAssets = assets.filter((a) => a.name !== 'IPInspectorZ-setup.exe');
+
+                filteredAssets.forEach((asset) => {
+                    const name = asset.name.toLowerCase();
+                    if (name.endsWith('.exe') || name.endsWith('.msi')) platforms.Windows.push(asset);
+                    else if (name.endsWith('.dmg') || name.endsWith('app.tar.gz')) platforms.macOS.push(asset);
+                    else if (name.endsWith('.deb') || name.endsWith('.appimage')) platforms.Linux.push(asset);
+                    else platforms.Other.push(asset);
+                });
+
+                return platforms;
+            }
+
+            function createPlatformCard(platformName, assets, iconClass, borderColorClass) {
+                if (assets.length === 0) return '';
+
+                let assetsHtml = assets
+                    .map(
+                        (asset) => `
+                    <a href="${asset.browser_download_url}" class="group/item flex items-center justify-between p-3 rounded-xl hover:bg-slate-800/50 transition-colors border border-transparent hover:border-slate-700/50">
+                        <div class="flex items-center gap-3 overflow-hidden">
+                            <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700/50 group-hover/item:border-slate-600 transition-colors">
+                                <i class="fa-solid ${getFormatIcon(asset.name)}"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-300 group-hover/item:text-white truncate" title="${asset.name}">${asset.name}</span>
+                        </div>
+                        <div class="flex items-center gap-3 shrink-0 ml-4">
+                            <span class="text-xs text-slate-500 font-mono">${formatBytes(asset.size)}</span>
+                            <div class="w-8 h-8 rounded-full bg-brand-500/10 text-brand-400 flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-all transform scale-75 group-hover/item:scale-100">
+                                <i class="fa-solid fa-download text-xs"></i>
+                            </div>
+                        </div>
+                    </a>
+                `,
+                    )
+                    .join('');
+
+                if (platformName === 'Windows') {
+                    assetsHtml =
+                        `
+                    <div class="mb-3 relative group/stable">
+                        <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-500 to-cyan-500 rounded-xl blur opacity-20 group-hover/stable:opacity-40 transition duration-1000 group-hover/stable:duration-200"></div>
+                        <a href="${STABLE_WINDOWS_EXE_URL}" class="relative flex items-center justify-between p-3 rounded-xl bg-slate-900 border border-brand-500/30 hover:bg-slate-800 transition-colors">
+                            <div class="flex items-center gap-3 overflow-hidden">
+                                <div class="w-8 h-8 rounded-lg bg-brand-500/20 flex items-center justify-center shrink-0 border border-brand-500/30">
+                                    <i class="fa-brands fa-windows text-brand-400"></i>
+                                </div>
+                                <div class="flex flex-col truncate">
+                                    <span class="text-sm font-semibold text-white truncate">IPInspectorZ-setup.exe</span>
+                                    <span class="text-[10px] text-brand-400 font-medium uppercase tracking-wider">Direct Stable Link</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center shrink-0 ml-2">
+                                <div class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center shadow-[0_0_15px_-3px_rgba(59,130,246,0.5)]">
+                                    <i class="fa-solid fa-download text-xs"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    ` + assetsHtml;
+                }
+
+                return `
+                    <div class="glass-card rounded-2xl p-6 border-t-2 ${borderColorClass} hover:-translate-y-1 transition-transform duration-300">
+                        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-700/50">
+                            <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700">
+                                <i class="fa-brands ${iconClass} text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-white">${platformName}</h3>
+                        </div>
+                        <div class="space-y-1">
+                            ${assetsHtml}
+                        </div>
+                    </div>
+                `;
+            }
+
+            async function init() {
+                try {
+                    const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/releases/latest`);
+                    if (!res.ok) throw new Error('Fetch failed');
+                    const data = await res.json();
+
+                    const os = detectOS();
+                    const osBadge = document.getElementById('detected-os');
+                    const primaryBtn = document.getElementById('primary-download-btn');
+                    const primaryBtnText = document.getElementById('primary-btn-text');
+                    const primaryInfo = document.getElementById('primary-version-info');
+                    const msStoreNotice = document.getElementById('ms-store-notice');
+                    const container = document.getElementById('platforms-container');
+
+                    // Primary Download Logic
+                    let osInfo = { icon: 'fa-desktop', colorClass: 'text-slate-400' };
+                    let downloadUrl = '#';
+                    let assetFound = null;
+
+                    if (os === 'Windows') {
+                        osInfo = { icon: 'fa-windows', colorClass: 'text-blue-400' };
+                        downloadUrl = STABLE_WINDOWS_EXE_URL;
+                        assetFound = { name: 'IPInspectorZ-setup.exe' };
+                        const origSetup = data.assets.find((a) => a.name.toLowerCase().endsWith('setup.exe'));
+                        if (origSetup) assetFound.size = origSetup.size;
+                        msStoreNotice.classList.remove('hidden');
+                    } else if (os === 'macOS') {
+                        osInfo = { icon: 'fa-apple', colorClass: 'text-white' };
+                        assetFound = data.assets.find((a) => a.name.endsWith('.dmg'));
+                        if (assetFound) downloadUrl = assetFound.browser_download_url;
+                    } else if (os === 'Linux') {
+                        osInfo = { icon: 'fa-linux', colorClass: 'text-orange-500' };
+                        assetFound = data.assets.find((a) => a.name.endsWith('.AppImage') || a.name.endsWith('.deb'));
+                        if (assetFound) downloadUrl = assetFound.browser_download_url;
+                    }
+
+                    osBadge.innerHTML = `<i class="fa-brands ${osInfo.icon} ${osInfo.colorClass} mr-2"></i> System: <span class="text-white ml-1">${os}</span>`;
+
+                    const publishDate = new Date(data.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+                    if (downloadUrl !== '#') {
+                        primaryBtn.href = downloadUrl;
+                        primaryBtnText.textContent = `Download for ${os}`;
+                        primaryInfo.innerHTML = `
+                            <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-tag text-xs opacity-70"></i> ${data.tag_name}</span>
+                            <span class="opacity-50">•</span>
+                            <span class="inline-flex items-center gap-1.5"><i class="fa-regular fa-clock text-xs opacity-70"></i> ${publishDate}</span>
+                            ${assetFound.size ? `<span class="opacity-50">•</span><span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-weight-scale text-xs opacity-70"></i> ${formatBytes(assetFound.size)}</span>` : ''}
+                        `;
+                    } else {
+                        primaryBtnText.textContent = `View All Downloads`;
+                        primaryBtn.href = '#platforms-container';
+                        primaryInfo.innerHTML = `<span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-tag text-xs opacity-70"></i> Release: ${data.tag_name}</span>`;
+                    }
+
+                    // Render Platforms Grid
+                    document.getElementById('loading-platforms').style.display = 'none';
+                    const categorized = categorizeAssets(data.assets);
+
+                    let html = '';
+                    html += createPlatformCard('Windows', categorized.Windows, 'fa-windows text-blue-400', 'border-t-blue-500');
+                    html += createPlatformCard('macOS', categorized.macOS, 'fa-apple text-slate-200', 'border-t-slate-400');
+                    html += createPlatformCard('Linux', categorized.Linux, 'fa-linux text-orange-500', 'border-t-orange-500');
+
+                    if (categorized.Other.length > 0) {
+                        html += createPlatformCard('Other Assets', categorized.Other, 'fa-box-open text-brand-400', 'border-t-brand-500');
+                    }
+
+                    container.innerHTML =
+                        html || '<div class="col-span-full text-center text-slate-500 py-10">No downloads found for this release.</div>';
+                } catch (error) {
+                    console.error(error);
+                    document.getElementById('primary-version-info').innerHTML =
+                        `<span class="text-red-400"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Failed to load GitHub Release data.</span>`;
+                    document.getElementById('loading-platforms').innerHTML =
+                        `<div class="text-red-400"><i class="fa-solid fa-circle-exclamation text-2xl mb-2"></i><br/>Unable to load downloads.</div>`;
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', init);
+        </script>
+    </body>
+</html>
