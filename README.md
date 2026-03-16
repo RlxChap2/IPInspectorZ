@@ -1,8 +1,8 @@
 # IPInspectorZ
 
-A lightweight, cross-platform desktop and mobile application that displays **network and device information** derived from your connection and system environment. No login, no telemetry, no file scanning — just a clear diagnostic dashboard.
+A lightweight, cross-platform desktop application that displays **network and device information** derived from your connection and system environment. No login, no telemetry, no file scanning — just a clear diagnostic dashboard.
 
-Available on **Microsoft Store**, **Google Play**, **Mac App Store**, and as a **direct download** for Windows, macOS, and Linux.
+Available on **Microsoft Store** and as a **direct download** for Windows, macOS, and Linux.
 
 ---
 
@@ -21,13 +21,12 @@ See [docs/FEATURES.md](docs/FEATURES.md) for full feature documentation.
 
 ## Tech Stack
 
-| Layer          | Technology                                   |
-| -------------- | -------------------------------------------- |
-| Desktop shell  | **Tauri 2** (Rust)                           |
-| Mobile shell   | **Tauri 2** (Android / iOS via Tauri mobile) |
-| Frontend       | **TypeScript** + **Vite**                    |
-| Public IP      | [ipify](https://www.ipify.org/)              |
-| Geo + ISP data | [IPinfo](https://ipinfo.io/)                 |
+| Layer          | Technology                |
+| -------------- | ------------------------- |
+| Desktop shell  | **Tauri 2** (Rust)        |
+| Frontend       | **TypeScript** + **Vite** |
+| Public IP      | [ipify](https://www.ipify.org/) |
+| Geo + ISP data | [IPinfo](https://ipinfo.io/) |
 
 ---
 
@@ -38,9 +37,6 @@ See [docs/FEATURES.md](docs/FEATURES.md) for full feature documentation.
 | Platform      | Store                                |
 | ------------- | ------------------------------------ |
 | Windows 10/11 | Microsoft Store _(listing link TBD)_ |
-| Android 8.0+  | Google Play _(listing link TBD)_     |
-| macOS 12+     | Mac App Store _(listing link TBD)_   |
-| iOS 16+       | Apple App Store _(listing link TBD)_ |
 
 ### Direct download (GitHub Releases)
 
@@ -51,7 +47,6 @@ Pre-built binaries are attached to each [GitHub Release](../../releases):
 | Windows | `IPInspectorZ_x64-setup.exe` (NSIS installer) |
 | macOS   | `IPInspectorZ_x64.dmg`                        |
 | Linux   | `IPInspectorZ_amd64.AppImage` or `.deb`       |
-| Android | `IPInspectorZ.apk`                            |
 
 ---
 
@@ -60,8 +55,6 @@ Pre-built binaries are attached to each [GitHub Release](../../releases):
 - [Node.js](https://nodejs.org/) v18+
 - [Rust](https://rustup.rs/)
 - Platform-specific: [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/)
-- For Android: Android Studio + NDK
-- For iOS: Xcode 14+ (macOS only)
 
 ---
 
@@ -76,12 +69,6 @@ npm run icons:generate
 
 # Run desktop app in development
 npm run tauri dev
-
-# Run Android in development
-npm run tauri android dev
-
-# Run iOS in development (macOS only)
-npm run tauri ios dev
 ```
 
 ---
@@ -91,18 +78,11 @@ npm run tauri ios dev
 ```bash
 # Desktop (current OS)
 npm run build && npm run tauri build
-
-# Android
-npm run tauri android build
-
-# iOS (macOS only)
-npm run tauri ios build
 ```
 
-Built artifacts are placed in `src-tauri/target/release/bundle/` (desktop) and `src-tauri/gen/` (mobile).
+Built artifacts are placed in `src-tauri/target/release/bundle/`.
 
-See [docs/BUILD.md](docs/BUILD.md) for full build and code-signing instructions.  
-See [docs/PUBLISH.md](docs/PUBLISH.md) for store submission steps.
+See [docs/BUILD.md](docs/BUILD.md) for full build and code-signing instructions.
 
 ---
 
@@ -186,4 +166,4 @@ Full policy: [docs/PRIVACY.md](docs/PRIVACY.md)
 
 ## License
 
-[MIT](LICENSE) — free for personal and commercial use, including distribution on Microsoft Store, Google Play, Apple App Store, and other stores.
+[MIT](LICENSE) — free for personal and commercial use, including distribution on Microsoft Store and other stores.

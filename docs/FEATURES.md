@@ -86,8 +86,6 @@
 | Windows 10/11 (desktop) | Available                  |
 | macOS 12+ (desktop)     | Available                  |
 | Linux (desktop)         | Available (AppImage / deb) |
-| Android 8.0+            | Available                  |
-| iOS 16+                 | Available                  |
 
 ---
 
@@ -101,4 +99,4 @@ The following features are planned or under consideration. The codebase is struc
 - Traceroute visualization
 - Simple network speed test
 - Stricter proxy / datacenter detection heuristics
-- Store-specific UI polish for Microsoft Store / Google Play guidelines
+- Store-specific UI polish for Microsoft Store
