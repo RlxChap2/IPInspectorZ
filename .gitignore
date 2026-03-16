@@ -6,6 +6,7 @@ dist/
 src-tauri/target/
 *.tsbuildinfo
 scripts/
+test/
 
 # Vite
 .vite/
