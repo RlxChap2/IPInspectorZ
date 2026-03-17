@@ -6,7 +6,7 @@
 
 ## Summary
 
-IPInspectorZ is a **local-first** diagnostic tool. It does not require an account, does not send your data to our servers, and does not collect telemetry. This policy applies to all versions of IPInspectorZ, including the Microsoft Store edition and direct download.
+IPInspectorZ is a **local-first** diagnostic tool. It does not require an account, does not send your data to our servers, and does not collect telemetry. This policy applies to all versions of IPInspectorZ, including the direct download.
 
 ---
 
@@ -48,7 +48,7 @@ No audio, video, or custom data is sent over WebRTC. We do not control these thi
 
 ## Store-Specific Notes
 
-IPInspectorZ is distributed through the Microsoft Store and as a direct download. In each case:
+IPInspectorZ is distributed through the direct download. In each case:
 
 - No store-specific analytics or advertising identifiers are used by the app.
 - The app does not request any device permissions beyond what is needed to display network information.

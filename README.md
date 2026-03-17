@@ -2,7 +2,7 @@
 
 A lightweight, cross-platform desktop application that displays **network and device information** derived from your connection and system environment. No login, no telemetry, no file scanning — just a clear diagnostic dashboard.
 
-Available on **Microsoft Store** and as a **direct download** for Windows, macOS, and Linux.
+Available on **direct download** for Windows, macOS, and Linux.
 
 ---
 
@@ -32,15 +32,9 @@ See [docs/FEATURES.md](docs/FEATURES.md) for full feature documentation.
 
 ## Getting IPInspectorZ
 
-### Store installs (recommended for end users)
-
-| Platform      | Store                                |
-| ------------- | ------------------------------------ |
-| Windows 10/11 | Microsoft Store _(listing link TBD)_ |
-
 ### Direct download (GitHub Releases)
 
-Pre-built binaries are attached to each [GitHub Release](../../releases):
+Pre-built binaries are attached to each [GitHub Release](https://github.com/RlxChap2/IPInspectorZ/releases/latest):
 
 | OS      | File                                          |
 | ------- | --------------------------------------------- |
@@ -166,4 +160,4 @@ Full policy: [docs/PRIVACY.md](docs/PRIVACY.md)
 
 ## License
 
-[MIT](LICENSE) — free for personal and commercial use, including distribution on Microsoft Store and other stores.
+[MIT](LICENSE) — free for personal and commercial use, including distribution on and other stores.

@@ -99,4 +99,3 @@ The following features are planned or under consideration. The codebase is struc
 - Traceroute visualization
 - Simple network speed test
 - Stricter proxy / datacenter detection heuristics
-- Store-specific UI polish for Microsoft Store

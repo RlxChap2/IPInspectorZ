@@ -11,16 +11,6 @@ test/
 # Vite
 .vite/
 
-# Tauri bundle outputs (target/ above covers src-tauri/target/ and all bundles inside it)
-
-# Microsoft Store / MSIX packaging
-*.msix
-*.appx
-*.appxbundle
-AppPackages/
-*.msixpackages/
-.msix/
-
 # IDE & editors
 .idea/
 .vscode/
